@@ -6,7 +6,7 @@
 ])
 
 @section('content')
-<div class="panel-header">
+<div class="panel-header panel-header-sm">
 </div>
 <div class="content">
     <div class="row">
@@ -28,7 +28,7 @@
                     <table id="datatable" class="table table-striped table-bordered" cellspacing="0" width="100%">
                         <thead>
                             <tr>
-                                <th>{{ __('Imágen') }}</th>
+                                <th style="width:15px">{{ __('Imágen') }}</th>
                                 <th>{{ __('ID') }}</th>
                                 <th>{{ __('Nombre') }}</th>
                                 <th>{{ __('Fecha de alta') }}</th>
@@ -43,7 +43,7 @@
                             <tr>
                                 <td>
                                     <span class="avatar avatar-sm rounded-circle">
-                                        <img src="{{asset('assets')}}/img/default-avatar.png" alt=""
+                                        <img src="{{asset('assets')}}/img/brandProducts/{{$brandProduct->picture}}" alt=""
                                             style="max-width: 80px; border-radiu: 100px">
                                     </span>
                                 </td>

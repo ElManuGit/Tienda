@@ -3,7 +3,7 @@
 use Illuminate\Database\Seeder;
 use App\IDType;
 
-class IDTypeTableSeeder extends Seeder
+class IDTypesTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.

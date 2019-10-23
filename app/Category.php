@@ -12,7 +12,7 @@ class Category extends Model
         'id', 'name', 'description'
     ];
 
-    public function Product() {
+    public function Products() {
         return $this->belongsToMany('App\Product');
     }
 }

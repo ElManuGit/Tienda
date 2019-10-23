@@ -6,19 +6,23 @@
 ])
 
 @section('content')
-<div class="panel-header">
+<div class="panel-header panel-header-sm">
 </div>
 <div class="content">
     <div class="row">
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <a class="btn btn-primary btn-round text-white pull-right"
-                        href="{{ route('user.create') }}">{{ __('Agregar usuario') }}</a>
+
+                    {{-- Boton de agregar usuarios a través del modal crear --}}
+                    <a class="btn btn-primary btn-round text-white pull-right" data-toggle="modal"
+                        data-target="#exampleModal">{{ __('Agregar usuario') }}</a>
+
                     <h4 class="card-title">{{ __('Usuarios') }}</h4>
                     <div class="col-12 mt-2">
                         @include('alerts.success')
                         @include('alerts.errors')
+                        @include('users.partials.create')
                     </div>
                 </div>
                 <div class="card-body">
@@ -49,10 +53,10 @@
                                 </td>
                                 <td>{{$user->name}}</td>
                                 <td>{{$user->email}}</td>
-                                <td>{{ $user->created_at->diffForHumans()}}</td>
+                                <td>{{$user->created_at->diffForHumans()}}</td>
                                 <td class="text-right">
                                     @if($user->id!=auth()->user()->id)
-                                    <a type="button" href="{{route("profile.edit",$user)}}" rel="tooltip"
+                                    <a type="button" href="{{route("users.edit",$user)}}" rel="tooltip"
                                         class="btn btn-success btn-icon btn-sm " data-original-title="" title="">
                                         <i class="now-ui-icons ui-2_settings-90"></i>
                                     </a>
@@ -91,6 +95,18 @@
 
 @push('js')
 <script>
+    $('#exampleModal').modal('show');
+  var button = $(event.relatedTarget) // Button that triggered the modal
+  var recipient = button.data('whatever') // Extract info from data-* attributes
+  // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+  // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+  var modal = $(this)
+
+  modal.find('.modal-body input').val(recipient)
+})
+
+
+
     $(document).ready(function() {
       $(".delete-button").click(function(){
         var clickedButton = $( this );

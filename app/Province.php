@@ -8,7 +8,7 @@ class Province extends Model
 {
     protected $table = "provinces";
 
-    protected $fillable = ['nombre', 'pais_id'];
+    protected $fillable = ['name'];
 
     public function Country() {
         return $this->belongsTo('App\Country');

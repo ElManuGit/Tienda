@@ -16,23 +16,22 @@ class CreateProductsTable extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->string('picture')->default('no_picture.png');
-            $table->integer('barCode');
+            $table->string('barCode');
             $table->decimal('weight')->nullable();
             $table->string('size')->nullable();
-            $table->boolean('available');
-            $table->string('ingredients')->nullable();
-            $table->string('nutritionalInformation')->nullable();
-            $table->string('description')->nullable();
+            $table->boolean('available')->default(true);
+            $table->string('ingredients',1000)->nullable();
+            $table->string('nutritionalInformation',1000)->nullable();
+            $table->string('description',1000)->nullable();
 
-            $table->unsignedBigInteger('brand_product_id');
+            $table->unsignedBigInteger('brand_product_id')->nullable();
             $table->foreign('brand_product_id')->references('id')->on('brand_products');
 
-            $table->unsignedBigInteger('category_id');
-            $table->foreign('category_id')->references('id')->on('categories');
-
-            $table->unsignedBigInteger('country_id');
+            $table->unsignedBigInteger('country_id')->nullable();
             $table->foreign('country_id')->references('id')->on('countries');
+
+            $table->unsignedBigInteger('provider_id')->nullable();
+            $table->foreign('provider_id')->references('id')->on('providers');
 
             $table->timestamps();
         });

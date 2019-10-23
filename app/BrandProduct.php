@@ -12,7 +12,11 @@ class BrandProduct extends Model
         'id', 'name',
     ];
 
-    public function Product() {
-        return $this->belongsToMany('App\Product');
+    public function Products() {
+        return $this->hasMany('App\Product');
+    }
+
+    public function Providers() {
+        return $this->belongsToMany('App\Provider');
     }
 }

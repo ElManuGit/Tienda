@@ -16,28 +16,28 @@ class PermissionsTableSeeder extends Seeder
         Permission::create([
             'name'          => 'Navegar usuarios',
             'slug'          => 'users.index',
-            'description'   => 'Lista y navega todos los usuarios del sistema',
+            'description'   => 'Listar todos los usuarios',
 
         ]);
 
         Permission::create([
             'name'          => 'Ver detalle de usuarios',
             'slug'          => 'users.show',
-            'description'   => 'Ver en detalle cada usuario del sistema',
+            'description'   => 'Ver en detalle un usuario',
 
         ]);
 
         Permission::create([
             'name'          => 'Edición de usuarios',
             'slug'          => 'users.edit',
-            'description'   => 'Editar cualquier dato de un usuario del sistema',
+            'description'   => 'Editar cualquier dato de un usuario',
 
         ]);
 
         Permission::create([
             'name'          => 'Eliminar usuario',
             'slug'          => 'users.destroy',
-            'description'   => 'Eliminar cualquier usuario del sistema',
+            'description'   => 'Eliminar un usuario',
 
         ]);
 
@@ -46,113 +46,255 @@ class PermissionsTableSeeder extends Seeder
         Permission::create([
             'name'          => 'Listar roles',
             'slug'          => 'roles.index',
-            'description'   => 'Lista y navega todos los roles del sistema',
+            'description'   => 'Listar los roles',
 
         ]);
 
         Permission::create([
             'name'          => 'Ver en detalle un rol',
             'slug'          => 'roles.show',
-            'description'   => 'Ver en detalle cada rol del sistema',
+            'description'   => 'Ver en detalle un rol',
 
         ]);
 
         Permission::create([
             'name'          => 'Creación de un rol',
             'slug'          => 'roles.create',
-            'description'   => 'Crear un rol del sistema',
+            'description'   => 'Crear un rol',
 
         ]);
 
         Permission::create([
             'name'          => 'Eliminar rol',
             'slug'          => 'roles.destroy',
-            'description'   => 'Eliminar cualquier rol del sistema',
+            'description'   => 'Eliminar un rol',
 
         ]);
 
-         Permission::create([
+        Permission::create([
             'name'          => 'Edición de rol',
             'slug'          => 'roles.edit',
-            'description'   => 'Editar cualquier dato de un rol del sistema',
+            'description'   => 'Editar cualquier dato de un rol',
 
         ]);
 
+        //Providers---------------------------------------------------------------
+        Permission::create([
+            'name'          => 'Listar proveedores',
+            'slug'          => 'providers.index',
+            'description'   => 'Listar los proveedores',
 
+        ]);
+
+        Permission::create([
+            'name'          => 'Ver detalle de proveedor',
+            'slug'          => 'providers.show',
+            'description'   => 'Ver en detalle un proveedor',
+
+        ]);
+
+        Permission::create([
+            'name'          => 'Creación de un proveedor',
+            'slug'          => 'providers.create',
+            'description'   => 'Cargar un proveedor',
+
+        ]);
+
+        Permission::create([
+            'name'          => 'Eliminar proveedor',
+            'slug'          => 'providers.destroy',
+            'description'   => 'Eliminar un proveedor',
+
+        ]);
+
+        Permission::create([
+            'name'          => 'Edición de un proveedor',
+            'slug'          => 'providers.edit',
+            'description'   => 'Editar cualquier dato de un proveedor',
+
+        ]);
 
         //Products---------------------------------------------------------------
         Permission::create([
             'name'          => 'Listar productos',
             'slug'          => 'products.index',
-            'description'   => 'Lista y navega todos los productos del sistema',
+            'description'   => 'Listar todos los productos',
 
         ]);
 
         Permission::create([
             'name'          => 'Ver detalle de producto',
-            'slug'          => 'proucts.show',
-            'description'   => 'Ver en detalle cada producto del sistema',
+            'slug'          => 'products.show',
+            'description'   => 'Ver en detalle un producto',
 
         ]);
 
         Permission::create([
             'name'          => 'Creación de un producto',
             'slug'          => 'products.create',
-            'description'   => 'Crear un producto del sistema',
+            'description'   => 'Cargar un producto',
 
         ]);
 
         Permission::create([
             'name'          => 'Eliminar producto',
             'slug'          => 'products.destroy',
-            'description'   => 'Eliminar cualquier producto del sistema',
+            'description'   => 'Eliminar un producto',
 
         ]);
 
-         Permission::create([
+        Permission::create([
             'name'          => 'Edición de un producto',
-            'slug'          => 'productos.edit',
-            'description'   => 'Editar cualquier dato de un producto del sistema',
+            'slug'          => 'products.edit',
+            'description'   => 'Editar cualquier dato de un producto',
 
         ]);
 
-        
+
         //Categories---------------------------------------------------------------
         Permission::create([
             'name'          => 'Listar categorías',
             'slug'          => 'categories.index',
-            'description'   => 'Lista y navega todas las categorias del sistema',
+            'description'   => 'Listar las categorias',
 
         ]);
 
         Permission::create([
             'name'          => 'Ver detalle de una categoría',
             'slug'          => 'categories.show',
-            'description'   => 'Ver en detalle cada categoría del sistema',
+            'description'   => 'Ver en detalle una categoría',
 
         ]);
 
         Permission::create([
             'name'          => 'Creación de una categoría',
             'slug'          => 'categories.create',
-            'description'   => 'Crear un categoría del sistema',
+            'description'   => 'Cargar una categoría',
 
         ]);
 
         Permission::create([
             'name'          => 'Eliminar categoría',
             'slug'          => 'categories.destroy',
-            'description'   => 'Eliminar cualquier categoría del sistema',
+            'description'   => 'Eliminar un categoría',
 
         ]);
 
-         Permission::create([
+        Permission::create([
             'name'          => 'Edición de una categoría',
             'slug'          => 'categories.edit',
-            'description'   => 'Editar cualquier dato de una categoría del sistema',
+            'description'   => 'Editar cualquier dato de una categoría',
 
         ]);
-        
 
+
+
+        //Cities---------------------------------------------------------------
+        Permission::create([
+            'name'          => 'Listar ciudades',
+            'slug'          => 'cities.index',
+            'description'   => 'Listar las ciudades',
+
+        ]);
+
+        Permission::create([
+            'name'          => 'Ver detalle dea ciudad',
+            'slug'          => 'cities.show',
+            'description'   => 'Ver en detalle una ciudad',
+
+        ]);
+
+        Permission::create([
+            'name'          => 'Creación de una ciudad',
+            'slug'          => 'cities.create',
+            'description'   => 'Cargar una ciudad',
+
+        ]);
+
+        Permission::create([
+            'name'          => 'Eliminar ciudad',
+            'slug'          => 'cities.destroy',
+            'description'   => 'Eliminar una ciudad',
+
+        ]);
+
+        Permission::create([
+            'name'          => 'Edición de una ciudad',
+            'slug'          => 'cities.edit',
+            'description'   => 'Editar cualquier dato de una ciudad',
+
+        ]);
+
+        //Provinces---------------------------------------------------------------
+        Permission::create([
+            'name'          => 'Listar provincias',
+            'slug'          => 'province.index',
+            'description'   => 'Listar las provincias',
+
+        ]);
+
+        Permission::create([
+            'name'          => 'Ver detalle de provincia',
+            'slug'          => 'province.show',
+            'description'   => 'Ver en detalle una provincia',
+
+        ]);
+
+        Permission::create([
+            'name'          => 'Creación de un provincia',
+            'slug'          => 'province.create',
+            'description'   => 'Cargar una provincia',
+
+        ]);
+
+        Permission::create([
+            'name'          => 'Eliminar provincia',
+            'slug'          => 'province.destroy',
+            'description'   => 'Eliminar una provincia',
+
+        ]);
+
+        Permission::create([
+            'name'          => 'Edición de un provincia',
+            'slug'          => 'province.edit',
+            'description'   => 'Editar cualquier dato de una provincia',
+
+        ]);
+
+        //Countries---------------------------------------------------------------
+        Permission::create([
+            'name'          => 'Listar países',
+            'slug'          => 'countries.index',
+            'description'   => 'Lista los países',
+
+        ]);
+
+        Permission::create([
+            'name'          => 'Ver detalle de país',
+            'slug'          => 'countries.show',
+            'description'   => 'Ver en detalle cada país',
+
+        ]);
+
+        Permission::create([
+            'name'          => 'Creación de un país',
+            'slug'          => 'countries.create',
+            'description'   => 'Cargar un país',
+
+        ]);
+
+        Permission::create([
+            'name'          => 'Eliminar país',
+            'slug'          => 'countries.destroy',
+            'description'   => 'Eliminar un país',
+
+        ]);
+
+        Permission::create([
+            'name'          => 'Edición de un país',
+            'slug'          => 'countries.edit',
+            'description'   => 'Editar cualquier dato de un país',
+
+        ]);
     }
 }

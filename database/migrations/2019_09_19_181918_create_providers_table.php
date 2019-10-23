@@ -17,10 +17,16 @@ class CreateProvidersTable extends Migration
             $table->bigIncrements('id');
 
             $table->string('name');
+            $table->string('lastName');
+            $table->string('company');
             $table->string('email')->unique();
-            $table->string('phone1');
-            $table->string('phone2');
+            $table->string('phone1')->nullable();
+            $table->string('phone2')->nullable();
+            $table->string('others')->nullable();
             $table->boolean('state')->default(true);
+
+            $table->unsignedBigInteger('address_id')->nullable();
+            $table->foreign('address_id')->references('id')->on('addresses');
 
             $table->timestamps();
         });

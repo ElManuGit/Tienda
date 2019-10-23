@@ -18,7 +18,8 @@
                             <h3 class="mb-0">{{ __('Agregar Rol') }}</h3>
                         </div>
                         <div class="col-4 text-right">
-                            <a href="{{ route('user.index') }}" class="btn btn-primary btn-round">{{ __('Volver') }}</a>
+                            <a href="{{ route('roles.index') }}"
+                                class="btn btn-primary btn-round">{{ __('Volver') }}</a>
                         </div>
                     </div>
                 </div>
@@ -26,7 +27,7 @@
                     <form method="post" action="{{ route('roles.store') }}" autocomplete="off"
                         enctype="multipart/form-data">
                         @csrf
-
+                        {{-- Nombre del rol --}}
                         <div class="pl-lg-4">
                             <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
                                 <label class="form-control-label" for="input-name">{{ __('Nombre') }}</label>
@@ -37,14 +38,28 @@
                                 @include('alerts.feedback', ['field' => 'name'])
                             </div>
 
-                            <div class="form-group{{ $errors->has('description') ? ' has-danger' : '' }}">
-                                    <label class="form-control-label" for="input-description">{{ __('Descripción') }}</label>
-                                    <input type="textarea" name="description" id="input-description"
-                                        class="form-control{{ $errors->has('description') ? ' is-invalid' : '' }}"
-                                        placeholder="{{ __('Descripción') }}" value="{{ old('description') }}" required autofocus>
 
-                                    @include('alerts.feedback', ['field' => 'name'])
-                                </div>
+                            {{-- Url amigable --}}
+                            <div class="form-group{{ $errors->has('slug') ? ' has-danger' : '' }}">
+                                <label class="form-control-label" for="input-slug">{{ __('URL Amigable') }}</label>
+                                <input type="textarea" name="slug" id="input-slug"
+                                    class="form-control{{ $errors->has('slug') ? ' is-invalid' : '' }}"
+                                    placeholder="{{ __('URL Amigable') }}" value="{{ old('slug') }}" required autofocus>
+
+                                @include('alerts.feedback', ['field' => 'slug'])
+                            </div>
+
+                            {{-- Descripción --}}
+                            <div class="form-group{{ $errors->has('description') ? ' has-danger' : '' }}">
+                                <label class="form-control-label"
+                                    for="input-description">{{ __('Descripción') }}</label>
+                                <input type="textarea" name="description" id="input-description"
+                                    class="form-control{{ $errors->has('description') ? ' is-invalid' : '' }}"
+                                    placeholder="{{ __('Descripción') }}" value="{{ old('description') }}" required
+                                    autofocus>
+
+                                @include('alerts.feedback', ['field' => 'description'])
+                            </div>
 
                             <h3>Permiso especial</h3>
                             <div class="form-group">

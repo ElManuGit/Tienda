@@ -67,6 +67,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('users/{user}/edit', 'UserController@edit')->name('users.edit')
         ->middleware('permission:users.edit');
 
+    Route::post('users/store', 'UserController@store')->name('users.store')
+        ->middleware('permission:users.create');
+
 
     //Products
     Route::post('products/store', 'ProductController@store')->name('products.store')
@@ -230,9 +233,6 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('cities/{city}/edit', 'CityController@edit')->name('cities.edit')
         ->middleware('permission:cities.edit');
-
-
-
 });
 Auth::routes();
 

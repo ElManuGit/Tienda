@@ -33,10 +33,12 @@
                                 </div>
                             </div>
                         </div>
+
+                        {{-- Proveedor --}}
                         <div class="row">
                             <div class="col-md-7 pr-1">
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1">{{__(" Proveedor favorito")}}</label>
+                                    <label for="exampleInputProvider1">{{__(" Proveedor favorito")}}</label>
                                     <div class="input-group">
                                         <select class="custom-select" id="inputGroupSelect04" name="provider_id">
                                             @foreach ($providers as $provider)
@@ -48,10 +50,11 @@
                                                 href="{{ route('providers.create') }}">Agregar proveedor</button>
                                         </div>
                                     </div>
-                                    @include('alerts.feedback', ['field' => 'email'])
+                                    @include('alerts.feedback', ['field' => 'provider'])
                                 </div>
                             </div>
                         </div>
+
                         <div class="card-footer ">
                             <button type="submit" class="btn btn-primary btn-round">{{__('Guardar')}}</button>
                         </div>

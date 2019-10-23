@@ -15,4 +15,8 @@ class City extends Model
     public function Province() {
         return $this->belongsTo('App\Province');
     }
+
+    public function Addresses() {
+        return $this->hasMany('App\Address');
+    }
 }

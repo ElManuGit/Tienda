@@ -44,9 +44,7 @@ class BrandProductsTableSeeder extends Seeder
             'name' => 'Favorita',
         ]);
 
-        factory(BrandProduct::class)->create([
-            'name' => 'Apple'
-        ]);
+        factory(BrandProduct::class, 5)->create();
 
     }
 }

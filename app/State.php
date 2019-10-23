@@ -6,5 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class State extends Model
 {
-    //
+    protected $table = "states";
+
+    protected $fillable = ['name', 'description'];
+
+    public function Outputs(){
+        return $this->belongsToMany('App\Output');
+    }
+
 }

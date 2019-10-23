@@ -2,8 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use Storage;
 use App\Product;
+use App\Provider;
+use App\BrandProduct;
+use App\Category;
+use App\Country;
+use App\Picture;
 use Illuminate\Http\Request;
+
 
 class ProductController extends Controller
 {
@@ -16,7 +23,7 @@ class ProductController extends Controller
     {
         $products = Product::paginate();
 
-        return view ('products.index', compact('products'));
+        return view('products.index', compact('products'));
     }
 
     /**
@@ -26,7 +33,16 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view ('products.create');
+        $providers = Provider::all();
+        $categories = Category::all();
+        $brandProducts = BrandProduct::all();
+        $countries = Country::all();
+
+        return view('products.create')
+            ->with('providers', $providers)
+            ->with('categories', $categories)
+            ->with('countries', $countries)
+            ->with('brandProducts', $brandProducts);
     }
 
     /**
@@ -37,9 +53,26 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        $product = Product::create($request->all());
+        $product = new Product($request->all());
+        $product->save();
 
-        return redirect()->route('products.edit', $product->id)
+
+        //Imagen
+        if ($request->file('picture')) {
+            $file = $request->file('picture');
+            $pictureName = 'prod_' . $product->id . '_' . time() . '.' . $file->getClientOriginalExtension();
+            Storage::disk('products')->put($pictureName, \File::get($file));
+            $imagen = Picture::create([
+                'name' => $pictureName,
+                'product_id' => $product->id,
+            ]);
+        }
+
+
+        $product->categories()->sync($request->get('category_id'));
+
+
+        return redirect()->route('products.create')
             ->with('info', 'Producto guardado con éxito');
     }
 
@@ -51,7 +84,7 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        return view ('products.show', compact('product'));
+        return view('products.show', compact('product'));
     }
 
     /**
@@ -62,7 +95,7 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        return view ('products.edit', compact('product'));
+        return view('products.edit', compact('product'));
     }
 
     /**

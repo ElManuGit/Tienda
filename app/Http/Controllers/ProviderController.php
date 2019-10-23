@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Provider;
+use App\Address;
+use App\City;
 use Illuminate\Http\Request;
 
 class ProviderController extends Controller
@@ -14,9 +16,10 @@ class ProviderController extends Controller
      */
     public function index()
     {
-        $providers = Provider::paginate();
+        $cities = City::all();
+        $providers = Provider::all();
 
-        return view ('providers.index', compact('providers'));
+        return view ('providers.index', compact('providers'))->with('cities', $cities);
     }
 
     /**
@@ -37,9 +40,13 @@ class ProviderController extends Controller
      */
     public function store(Request $request)
     {
-        $provider = Provider::create($request->all());
+        $address = Address::create($request->all());
+        $provider = new Provider($request->all());
+        $provider->address_id = $address->id;
+        $provider->save();
 
-        return redirect()->route('providers.edit', $provider->id)
+
+        return redirect()->route('providers.index')
             ->with('info', 'Proveedor guardado con éxito');
     }
 
@@ -62,7 +69,9 @@ class ProviderController extends Controller
      */
     public function edit(Provider $provider)
     {
-        return view ('providers.edit', compact('provider'));
+        $cities = City::all();
+        $address = Address::find($provider->address_id);
+        return view ('providers.edit', compact('provider'))->with('cities', $cities)->with('address', $address);
     }
 
     /**
@@ -76,7 +85,7 @@ class ProviderController extends Controller
     {
         $provider->update($request->all());
 
-        return redirect()->route('providers.edit', $provider->id)
+        return redirect()->route('providers.index')
             ->with('info', 'Proveedor actualizado con éxito');
     }
 

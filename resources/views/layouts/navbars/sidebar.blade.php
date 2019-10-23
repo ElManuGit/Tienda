@@ -9,17 +9,14 @@
     </div>
     <div class="sidebar-wrapper" id="sidebar-wrapper">
         <ul class="nav">
-            <li class="@if ($activePage == 'home') active @endif">
+            <li class="" id="pageHome">
                 <a href="{{ route('home') }}">
                     <i class="now-ui-icons design_app"></i>
-                    <p>{{ __('Dashboard') }}</p>
+                    <p>{{ __('Panel de administración') }}</p>
                 </a>
             </li>
 
-
-
-
-
+            {{-- Usuarios y Roles --}}
             <li>
                 <a data-toggle="collapse" href="#laravelExamples">
                     <i class="now-ui-icons business_badge"></i>
@@ -31,14 +28,14 @@
 
                 <div class="collapse hiden" id="laravelExamples">
                     <ul class="nav">
-                        <li class="@if ($activePage == 'Roles') active @endif">
+                        <li class="" id="pageRoleUser">
                             <a href="{{ route('roles.index') }}">
                                 <i class="now-ui-icons design_bullet-list-67"></i>
                                 <p> {{ __("Gestión de roles") }} </p>
                             </a>
                         </li>
 
-                        <li class="@if ($activePage == 'Usuarios') active @endif">
+                        <li class="" id="pageRoleUser">
                             <a href="{{ route('user.index') }}">
                                 <i class="now-ui-icons users_single-02"></i>
                                 <p> {{ __("Gestión de usuarios") }} </p>
@@ -47,7 +44,9 @@
                     </ul>
                 </div>
             </li>
-            <li class="@if ($activePage == 'Productos') active @endif">
+
+            {{-- Productos --}}
+            <li class="" id="pageProduct">
                 <a href="{{ route('products.index') }}">
                     <i class="now-ui-icons education_atom"></i>
                     <p>{{ __('Productos') }}</p>
@@ -55,36 +54,48 @@
             </li>
 
 
-            <li class="@if ($activePage == 'Categorias') active @endif">
+            {{-- Providers --}}
+            <li class="" id="pageProvider">
+                <a href="{{ route('providers.index') }}">
+                    <i class="now-ui-icons users_single-02"></i>
+                    <p> {{ __("Proveedores") }} </p>
+                </a>
+            </li>
+
+            {{-- Categorías --}}
+            <li class="" id="pageCategory">
                 <a href="{{ route('categories.index') }}">
                     <i class="now-ui-icons users_single-02"></i>
                     <p> {{ __("Categorías") }} </p>
                 </a>
             </li>
 
-            <li class="@if ($activePage == 'Marcas') active @endif">
+            {{-- Marcas --}}
+            <li class="">
                 <a href="{{ route('brandProducts.index') }}">
                     <i class="now-ui-icons users_single-02"></i>
                     <p> {{ __("Marcas") }} </p>
                 </a>
             </li>
 
-
-            <li class="@if ($activePage == 'Paises') active @endif">
+            {{-- Paises --}}
+            <li class="">
                 <a href="{{ route('countries.index') }}">
                     <i class="now-ui-icons design_bullet-list-67"></i>
                     <p> {{ __("Países") }} </p>
                 </a>
             </li>
 
-            <li class="@if ($activePage == 'Provincias') active @endif">
+            {{-- Provincias --}}
+            <li class="">
                 <a href="{{ route('provinces.index') }}">
                     <i class="now-ui-icons users_single-02"></i>
                     <p> {{ __("Provincias") }} </p>
                 </a>
             </li>
 
-            <li class="@if ($activePage == 'Localidades') active @endif">
+            {{-- Localidades --}}
+            <li class="">
                 <a href="{{ route('cities.index') }}">
                     <i class="now-ui-icons users_single-02"></i>
                     <p> {{ __("Localidades") }} </p>
@@ -92,41 +103,35 @@
             </li>
 
 
-
-            <li class="@if ($activePage == 'icons') active @endif">
+            {{-- Ejemplos --}}
+            <li class="">
                 <a href="{{ route('page.index','icons') }}">
                     <i class="now-ui-icons education_atom"></i>
-                    <p>{{ __('Icons') }}</p>
+                    <p>{{ __('Pedidos') }}</p>
                 </a>
             </li>
-            <li class="@if ($activePage == 'maps') active @endif">
+            <li class="">
                 <a href="{{ route('page.index','maps') }}">
                     <i class="now-ui-icons location_map-big"></i>
-                    <p>{{ __('Maps') }}</p>
+                    <p>{{ __('Mapas') }}</p>
                 </a>
             </li>
-            <li class=" @if ($activePage == 'notifications') active @endif">
+            <li class="">
                 <a href="{{ route('page.index','notifications') }}">
                     <i class="now-ui-icons ui-1_bell-53"></i>
-                    <p>{{ __('Notifications') }}</p>
+                    <p>{{ __('Notificaciones') }}</p>
                 </a>
             </li>
-            <li class=" @if ($activePage == 'table') active @endif">
+            <li class="">
                 <a href="{{ route('page.index','table') }}">
                     <i class="now-ui-icons design_bullet-list-67"></i>
-                    <p>{{ __('Table List') }}</p>
+                    <p>{{ __('Tablas') }}</p>
                 </a>
             </li>
-            <li class="@if ($activePage == 'typography') active @endif">
+            <li class="">
                 <a href="{{ route('page.index','typography') }}">
                     <i class="now-ui-icons text_caps-small"></i>
-                    <p>{{ __('Typography') }}</p>
-                </a>
-            </li>
-            <li class="@if ($activePage == 'upgrade') active @endif active-pro">
-                <a href="{{ route('page.index','upgrade') }}">
-                    <i class="now-ui-icons arrows-1_cloud-download-93"></i>
-                    <p>{{ __('Upgrade to PRO') }}</p>
+                    <p>{{ __('Fuentes') }}</p>
                 </a>
             </li>
         </ul>

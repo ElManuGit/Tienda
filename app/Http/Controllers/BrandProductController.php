@@ -17,7 +17,7 @@ class BrandProductController extends Controller
     {
         $brandProducts = BrandProduct::paginate();
 
-        return view ('brandProducts.index', compact('brandProducts'));
+        return view('brandProducts.index', compact('brandProducts'));
     }
 
     /**
@@ -30,7 +30,7 @@ class BrandProductController extends Controller
 
         $providers = Provider::all();
 
-        return view ('brandProducts.create')->with('providers',$providers);
+        return view('brandProducts.create')->with('providers', $providers);
     }
 
     /**
@@ -55,7 +55,7 @@ class BrandProductController extends Controller
      */
     public function show(BrandProduct $brandProduct)
     {
-        return view ('brandProducts.show', compact('brandProduct'));
+        return view('brandProducts.show', compact('brandProduct'));
     }
 
     /**
@@ -66,7 +66,7 @@ class BrandProductController extends Controller
      */
     public function edit(BrandProduct $brandProduct)
     {
-        return view ('brandProducts.edit', compact('brandProduct'));
+        return view('brandProducts.edit', compact('brandProduct'));
     }
 
     /**
